@@ -1,0 +1,47 @@
+.encabezado, .collapsible {
+    padding: 20px;
+}
+
+
+.active{
+    background-color: #f9e7d9;
+}
+
+.content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #f9e7d9;
+}
+
+.collapsible {
+    display: table-row;
+    width: 100%;
+}
+
+.encabezado {
+    display: flex;
+    justify-content: space-between;
+}
+
+.encabezado h3 {
+    flex-grow: 1;
+    flex-basis: 0;
+    text-align: center;
+}
+
+.collapsible {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+}
+
+.collapsible p {
+    flex-grow: 1;
+    text-align: center;
+    flex-basis: 0;
+}
+
+.elemento {
+    margin: 15px;
+}

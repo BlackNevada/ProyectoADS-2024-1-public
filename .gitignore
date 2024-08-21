@@ -1,0 +1,6 @@
+
+inf23620241/venv
+inf23620241/.idea
+__pycache__/
+migrations/
+db.sqlite3

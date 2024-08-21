@@ -1,0 +1,6 @@
+<svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" >
+  <g>
+    <polyline data-cap="butt" data-color="color-2" points="33.136 29.136 44 40 40 44 29.135 33.135" fill="none" stroke="#e7773c" stroke-miterlimit="10" stroke-width="2"></polyline>
+    <circle cx="20" cy="20" r="16" fill="none" stroke="#e7773c" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2"></circle>
+    </g>
+</svg>

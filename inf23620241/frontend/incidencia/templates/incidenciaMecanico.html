@@ -1,0 +1,23 @@
+{% extends "sidebar_mecanico.html" %}
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/incidencia.css' %}">
+    <div class="bar-incidencia">
+        <ul class="bar-menu">
+            <li>
+                <a href="/incidencia/crear">
+                    <img src="{% static 'img/add.svg' %}" alt="add">
+                    Agregar Incidencia
+                </a>
+            </li>
+
+            <li>
+                <a href="/incidencia">
+                    <img src="{% static 'img/search.svg' %}" alt="Buscar">
+                    Buscar Incidencia
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+{% endblock %}

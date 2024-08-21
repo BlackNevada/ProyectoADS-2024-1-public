@@ -1,0 +1,65 @@
+{% extends "sidebar_jefe.html" %}
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/incidencia.css' %}">
+    <link rel="stylesheet" href="{% static 'css/tabla.css' %}"> <!-- Add this line -->
+    <div class="bar-incidencia">
+        <ul class="bar-menu">
+            <li>
+                <a href="/tareas/crear">
+                    <img src="{% static 'img/add.svg' %}" alt="add">
+                    Agregar Incidencia
+                </a>
+            </li>
+
+            <li>
+                <a href="/incidencia">
+                    <img src="{% static 'img/search.svg' %}" alt="Buscar">
+                    Buscar Incidencia
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="table-collapsible">
+        <div class="encabezado">
+          <h3>N° Incidencia</h3>
+          <h3>Titulo</h3>
+          <h3>N° Motor</h3>
+          <h3>Mecanico</h3>
+          <h3>Fecha de Registro</h3>
+        </div>
+    
+        {% for incidencia in incidencias %}
+        <div class="elemento">
+          <button class="collapsible">
+            <p>{{ incidencia.id_incidencia }}</p>
+            <p>{{ incidencia.titulo }}</p>
+            <p>{{ incidencia.n_serie_motor }}</p>
+            <p>{{ incidencia.id_mecanico }}</p>
+            <p>{{ incidencia.fecha }}</p>
+          </button>
+          <div class="content">
+            <p>{{ incidencia.detalles }}</p>
+          </div>  
+        </div>
+        {% endfor %}  
+        <script>
+          var coll = document.getElementsByClassName("collapsible");
+          var i;
+    
+          for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function() {
+              this.classList.toggle("active");
+              var content = this.nextElementSibling;
+              if (content.style.display === "block") {
+                content.style.display = "none";
+              } else {
+                content.style.display = "block";
+              }
+            });
+          }
+        </script>
+    
+    </div>
+{% endblock %}

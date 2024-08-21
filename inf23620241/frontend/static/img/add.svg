@@ -1,0 +1,7 @@
+<svg width="48" height="48" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+  <g>
+    <circle cx="6" cy="6" r="5.5" fill="none" stroke="#e7773c" stroke-linecap="round" stroke-linejoin="round"></circle>
+    <line stroke="#e7773c" fill="none" stroke-linejoin="round" y1="3" stroke-linecap="round" data-color="color-2" x1="6" y2="9" x2="6"></line>
+    <line stroke="#e7773c" fill="none" stroke-linejoin="round" y1="6" stroke-linecap="round" data-color="color-2" x1="3" y2="6" x2="9"></line>
+    </g>
+</svg>

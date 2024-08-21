@@ -1,0 +1,51 @@
+version: '3'
+services:
+  db:
+    image: mysql
+    command: --mysql_native_password=ON
+    container_name: inf236_backend_mariadb
+    restart: always
+    env_file:
+      - ./backend/.env
+    environment:
+      MYSQL_ROOT_PASSWORD: passwordchangeme
+      MYSQL_DATABASE: inf236backenddb
+      MYSQL_USER: inf236backenduser
+      MYSQL_PASSWORD: passwordchangeme
+      MYSQL_ROOT_HOST: "0.0.0.0"
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test: ["CMD", "mysql", "-h", "localhost", "-u", "root", "-p passwordchangeme", "-e", "SELECT 1"]
+      timeout: 20s
+      retries: 10
+
+
+  backend:
+    build: ./backend
+    container_name: inf236_backend
+    command: sh -c "python3 manage.py makemigrations && python3 manage.py migrate --noinput && python manage.py runserver 0.0.0.0:8000"
+    restart: always
+    env_file:
+      - ./backend/.env
+    volumes:
+      - ./backend:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+
+
+  frontend:
+    build: ./frontend
+    container_name: inf236_frontend
+    command: sh -c "python3 manage.py makemigrations && python3 manage.py migrate --noinput && python manage.py runserver 0.0.0.0:8080"
+    restart: always
+    env_file:
+      - ./frontend/.env
+    volumes:
+      - ./frontend:/app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - backend

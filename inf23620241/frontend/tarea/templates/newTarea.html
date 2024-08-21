@@ -1,0 +1,53 @@
+{% extends "sidebar_jefe.html" %}
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/newIncidenciaMecanico.css' %}">
+    <div class="form-container">
+        <h1>Tarea Nueva</h1>
+        <form action="/tareas/crear" method="POST">
+            {% csrf_token %}
+            <label for="title">Título</label>
+            <input type="text" id="titulo" name="titulo" placeholder="ingrese" required>
+
+            <label for="tipo">Tipo de tarea</label>
+            <select name="tipo" id="tipo" required>
+                <option value="mantenimiento">Mantenimiento</option>
+                <option value="reparacion">Reparación</option>
+            </select>
+
+            <label for="n_serie">Número de serie motor</label>
+            <input type="text" id="n_serie" name="n_serie" placeholder="ingrese" required>
+
+            <label for="Mecanico">Mecánico (rut)</label>
+            <input type="text" id="mecanico" name="mecanico" placeholder="ingrese" required>
+
+            <!-- select para seleccionar prioridad -->
+            <label for="prioridad">Prioridad</label>
+            <select name="prioridad" id="prioridad" required>
+                <option value="baja">Baja</option>
+                <option value="media">Media</option>
+                <option value="alta">Alta</option>
+            </select>
+        
+            <label for="descripcion">Descripción detallada</label>
+            <textarea id="descripcion" name="descripcion" required></textarea>
+
+            <input type="submit" value="Registrar">
+        </form>
+        {% for msg in messages %}
+            <div class="alert-{{ msg.tags }}">
+                {{ msg }}
+            </div>
+        {% endfor %}
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const alertas = document.querySelectorAll('.alert-error, .alert-success');
+            alertas.forEach(alerta => {
+                alerta.addEventListener('click', () => {
+                    alerta.style.display = 'none';
+                });
+            });
+        });
+    </script>
+{% endblock %}

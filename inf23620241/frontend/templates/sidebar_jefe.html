@@ -1,0 +1,31 @@
+{% load static %} 
+<html>
+<head>
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+<body>
+
+  <div class="sidebar">
+    <div class="profile">
+      <div class="profile-icon">
+        <img src="{% static 'img/mecanico.svg' %}" alt="profile-icon">
+      </div>
+      <div class="profile-name">
+        <p>{{user_name}}</p>
+      </div>
+    </div>
+    <ul class="sidebar-menu">
+      <li {% if enlace_acti == 'Inicio' %}id="selected"{%endif%}><a href="/home">Inicio</a></li>
+      <li {% if enlace_acti == 'Tareas' %}id="selected"{%endif%}><a>Tareas</a></li>
+      <li {% if enlace_acti == 'Incidencias' %}id="selected"{%endif%}><a href="/incidencia">Incidencias</a></li>
+      <li {% if enlace_acti == 'Macro' %}id="selected"{%endif%}><a href="/macro">Macro</a></li>
+      <li {% if enlace_acti == 'Asociaciones' %}id="selected"{%endif%}><a href="/asociaciones">Asociaciones</a></li>
+    </ul>
+  </div>
+
+  <main>
+    {% block content %}
+    {% endblock %}
+  </main>
+</body>
+</html>

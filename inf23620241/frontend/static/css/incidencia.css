@@ -1,0 +1,28 @@
+.bar-incidencia {
+    width: 100%;
+    border-bottom: 3px solid #c7c7c7; /* Añade una línea inferior de 3px de grosor */
+}
+
+.bar-menu {
+    list-style-type: none; /* Elimina los puntos de la lista */
+    padding: 0;
+    margin: 0;
+    display: flex; /* Hace que los elementos hijos se dispongan en una fila */
+    justify-content: space-between; /* Distribuye los elementos a lo largo del contenedor */
+    
+    padding-top: 20px; /* Añade un espacio en la parte superior de 20px */
+    padding-bottom: 20px; /* Añade un espacio en la parte inferior de 20px */
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.bar-menu a {
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+    color: #000; /* Cambia el color del texto a negro */
+    font-size: 20px; /* Tamaño de la fuente */
+}
+
+.bar-menu a img {
+    vertical-align: middle; /* Alinea la imagen verticalmente en el medio */
+    margin-right: 5px; /* Espacio entre la imagen y el texto */
+}

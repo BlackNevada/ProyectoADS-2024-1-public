@@ -1,0 +1,36 @@
+{% extends "sidebar_mecanico.html" %}
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/newIncidenciaMecanico.css' %}">
+    <div class="form-container">
+        <h1>Registrar incidencia</h1>
+        <form action="/incidencia/crear" method="POST">
+            {% csrf_token %}
+            <label for="title">Título</label>
+            <input type="text" id="titulo" name="titulo" placeholder="ingrese" required>
+
+            <label for="n_serie">Número de serie motor</label>
+            <input type="text" id="n_serie" name="n_serie" placeholder="ingrese" required>
+
+            <label for="descripcion">Descripción detallada</label>
+            <textarea id="descripcion" name="descripcion" required></textarea>
+
+            <input type="submit" value="Registrar">
+        </form>
+        {% for msg in messages %}
+            <div class="alert-{{ msg.tags }}">
+                {{ msg }}
+            </div>
+        {% endfor %}
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const alertas = document.querySelectorAll('.alert-error, .alert-success');
+            alertas.forEach(alerta => {
+                alerta.addEventListener('click', () => {
+                    alerta.style.display = 'none';
+                });
+            });
+        });
+    </script>
+{% endblock %}
